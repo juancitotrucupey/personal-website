@@ -21,7 +21,9 @@
 ## Experience
 
 ### ML Engineer / Data Scientist — Lyric Tech (Remote) · Jan 2025 – Present
+
 Short version:
+
 - Implement and optimize pipelines for distributed training of ML models using Ray and Kubernetes.
 - Implement observability tools for distributed ML pipelines.
 - Developed and maintained Python packages to train and serve ML models in production.
@@ -29,12 +31,15 @@ Short version:
 Core technologies: Python, bash, SQL · Ray, MLflow, Optuna, Pydantic · time series forecasting · GCP, AWS · Docker, GitHub Actions, Kubernetes, KubeRay · S3 · Scrum · Git, Jira, VS Code, Confluence, Grafana, Streamlit, pdb, pylance, pyright, mypy, ruff
 
 ### ML Engineer / Data Scientist — Zapata AI (Remote) · Feb 2024 – Oct 2024
+
 Short version:
+
 - Developed end-to-end ML applications for financial time series analysis using generative AI, delivering models that surpassed the client's legacy models.
 - Designed tailored hyper-parameter tuning and evaluation pipelines for generative models following the customer use case.
 - Developed and maintained Python packages used to serve ML models in production.
 
 Long version:
+
 - Developed generative models for financial time series which outperformed the customer's legacy models.
 - Optimized model inference and training using JIT tools provided by PyTorch and TensorFlow.
 - Optimized model inference and training using GPUs.
@@ -50,6 +55,7 @@ Long version:
 Core technologies: Python, bash, SQL · PyTorch, TensorFlow, MLflow, Optuna, MLServer, Ray, Scikit-Learn, Pydantic · generative AI, time series forecasting · AWS, EC2 · Docker, GitHub Actions, Kubernetes · Dremio, S3 · Scrum, Kanban · Git, Jira, VS Code, Confluence, Grafana, Streamlit, pdb, pylance, pyright, mypy, ruff
 
 ### Teacher — Pontificia Universidad Javeriana, Bogotá (Part-time, remote) · Sep 2023 – Nov 2023
+
 - Gave lectures on Data Science and Machine Learning to 20+ students.
 - Developed Jupyter notebooks to put the content of the lectures into practice.
 - Provided real-world examples of ML techniques with hands-on exercises on Kaggle datasets.
@@ -58,12 +64,15 @@ Core technologies: Python, bash, SQL · PyTorch, TensorFlow, MLflow, Optuna, MLS
 Core technologies: Python, bash, SQL · PyTorch, TensorFlow, NumPy, Dask · EDA, NLP, statistics, neural networks · MongoDB Atlas, GCP · MongoDB, SQLite · Git
 
 ### ML (Ops) Engineer — Human Brain Technologies S.A.S. (Part-time, remote) · Feb 2021 – Jun 2023
+
 Short version:
+
 - Designed RAG systems for legal texts using custom semantic embeddings.
 - Implemented scraping pipelines for publicly available legal texts and news.
 - Conducted research on applied NLP.
 
 Long version:
+
 - Implemented a scraping pipeline for news extracting more than 10,000 articles from X.
 - Implemented an automatic topic extraction and identification pipeline for news which processed more than ⟨MISSING NUMBER⟩.
 - Implemented an automatic scraping pipeline to extract publicly available legal documents and store them in document-oriented databases.
@@ -79,6 +88,7 @@ Long version:
 Core technologies: Python, bash, SQL · PyTorch, TensorFlow, HuggingFace, Scikit-learn, spaCy, NLTK, NumPy, Tesseract, SHAP, NetworkX, LangChain, LlamaIndex, SentenceTransformers · Pathos, cProfile, SnakeViz · NLP, NER, entity disambiguation, topic identification, OCR, interpretable ML · MongoDB Atlas · MongoDB, PostgreSQL, SQLite · Kanban · Selenium, cron, Streamlit, Dash, BeautifulSoup, Trafilatura, FastAPI, Uvicorn, OpenAI API, Qdrant, Chroma · Docker, GitLab CI/CD
 
 ### Software Developer Intern — Zapata AI (Remote internship) · Jun 2022 – Dec 2022
+
 - Developed a workflow orchestrator for distributed computing of resource-intensive tasks based on Ray.
 - Co-designed the orchestrator's API using the design thinking framework, and enhanced its versatility.
 - Co-developed a Python library for efficiently searching quantum error correction codes.
@@ -89,6 +99,7 @@ Core technologies: Python, bash, SQL · PyTorch, TensorFlow, HuggingFace, Scikit
 Core technologies: Python, bash · Ray, Numba, Pathos, cProfile, SnakeViz, multiprocessing · pytest, pydantic, coverage, pdb, pylance, pyright, mypy · AWS, EC2 · Docker, GitHub Actions, Kubernetes · SQLite · Scrum, Kanban · Git, Jira, VS Code
 
 ### Data Scientist / ML Engineer — Contraloría General de la República (Full-time) · Oct 2021 – Mar 2022
+
 - Created an automatic news scraping pipeline consuming 100+ news sites daily into SQL databases.
 - Implemented a named-entity extraction pipeline to catalog news and public contracts.
 - Implemented a relevant-document search pipeline matching contracts and news, to automatically flag potential violations of public contracts.
@@ -97,6 +108,7 @@ Core technologies: Python, bash · Ray, Numba, Pathos, cProfile, SnakeViz, multi
 Core technologies: Python, bash, SQL · PyTorch, HuggingFace, Scikit-learn, spaCy, NLTK, PySpark · Dask, Pathos, cProfile, SnakeViz · NLP, NER, entity disambiguation · AzureML, Azure VMs · SQL Server · Kanban · Git, VS Code, Azure DevOps, Selenium, cron, SQLAlchemy, BeautifulSoup, Trafilatura
 
 ### Quantum Programmer — Quantum Widget Company (Remote internship) · Jun 2017 – Jan 2018
+
 - Developed and implemented algorithms for the D-Wave 2000Q quantum computer using the D-Wave Python API.
 - Translated trajectory optimization problems into QUBO problems and solved them on the D-Wave 2000Q.
 - Trained autoencoders and Restricted Boltzmann Machines and benchmarked them against generative models using the D-Wave 2000Q.
@@ -104,6 +116,7 @@ Core technologies: Python, bash, SQL · PyTorch, HuggingFace, Scikit-learn, spaC
 Core technologies: Python, bash, C++ · TensorFlow, Scikit-learn, NumPy · generative AI · Git, GitHub
 
 ### Research Assistant — Simulation of Physical Systems research group (UNAL) · 2017 – 2019
+
 - Implemented high-performance C++ code to simulate traffic dynamics in Bogotá using cellular automaton models, with results relevant for public policy.
 - Implemented high-performance C++ and CUDA code to simulate immiscible fluids using the Lattice Boltzmann Method.
 - Presented results at national and international events.
@@ -113,9 +126,9 @@ Core technologies: C++, Python, bash · CUDA, OpenMP, Open MPI, SLURM, Eigen · 
 ## Education
 
 - **M.Sc. in Mathematics** — Universidad Nacional de Colombia · Mar 2019 – Nov 2024
-  Thesis: *The Non-Commutative Brillouin Torus, a Non-commutative Geometry perspective* (applications of Non-Commutative Geometry to solid state physics). Thesis files: https://drive.google.com/drive/folders/1VXjomd_6Oim7oigK2n3sZYwsrhWClumS
+  Thesis: _The Non-Commutative Brillouin Torus, a Non-commutative Geometry perspective_ (applications of Non-Commutative Geometry to solid state physics). Thesis files: https://drive.google.com/drive/folders/1VXjomd_6Oim7oigK2n3sZYwsrhWClumS
 - **B.Sc. in Physics** — Universidad Nacional de Colombia · Feb 2013 – Dec 2018 (1-page CV says Jun 2019)
-  Thesis: *Simulation of traffic bottlenecks using cellular automaton* (numerical simulation of traffic in Bogotá). Thesis PDF: https://drive.google.com/file/d/1iW4wcanFF1jaBMap7b8ekN22cE6Hvyzb/view · Code: https://github.com/juancitotrucupey/Depured_Multilane
+  Thesis: _Simulation of traffic bottlenecks using cellular automaton_ (numerical simulation of traffic in Bogotá). Thesis PDF: https://drive.google.com/file/d/1iW4wcanFF1jaBMap7b8ekN22cE6Hvyzb/view · Code: https://github.com/juancitotrucupey/Depured_Multilane
 
 ## Publications
 
@@ -126,8 +139,8 @@ Core technologies: C++, Python, bash · CUDA, OpenMP, Open MPI, SLURM, Eigen · 
 
 ## Presentations
 
-- **Traffic and Granular Flow** — Navarra, Spain · Jul 2019. Poster: *Study of a traffic bottleneck using a cellular automaton model*. Poster PDF: https://drive.google.com/file/d/18sZLUpGvvyk6az-Vn1P42fnXg804X_fL/view
-- **XXVII National Congress of Physics** — Cartagena, Colombia · Oct 2017. Poster: *Modelling immiscible fluids using the LBM (Lattice Boltzmann Method)*
+- **Traffic and Granular Flow** — Navarra, Spain · Jul 2019. Poster: _Study of a traffic bottleneck using a cellular automaton model_. Poster PDF: https://drive.google.com/file/d/18sZLUpGvvyk6az-Vn1P42fnXg804X_fL/view
+- **XXVII National Congress of Physics** — Cartagena, Colombia · Oct 2017. Poster: _Modelling immiscible fluids using the LBM (Lattice Boltzmann Method)_
 
 ## Workshops
 
