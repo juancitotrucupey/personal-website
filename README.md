@@ -51,8 +51,10 @@ npm run dev     # start the dev server at http://localhost:4321
 
 ## Deploying
 
-The site is hosted on Firebase Hosting, project `personal-website-juan-florez`
-(default URL: https://personal-website-juan-florez.web.app). Configuration: `firebase.json`, `.firebaserc`.
+The site is live at **https://trucupey.dev**, hosted on Firebase Hosting, project
+`personal-website-juan-florez` (default URL: https://personal-website-juan-florez.web.app). The domain is
+registered at Namecheap; its DNS has an A record (`@` → `199.36.158.100`) and a TXT record
+(`hosting-site=personal-website-juan-florez`) for Firebase. Configuration: `firebase.json`, `.firebaserc`.
 
 ```bash
 npm run firebase -- login   # once per machine, opens Google sign-in

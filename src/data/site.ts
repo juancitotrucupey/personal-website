@@ -1,9 +1,9 @@
 /**
  * Site-wide settings: the single place for name, URL and profile links.
- * TODO: switch `url` to the custom domain once it is connected in Firebase Hosting.
+ * Canonical URL of the site (custom domain served by Firebase Hosting).
  */
 export const SITE = {
-  url: "https://personal-website-juan-florez.web.app",
+  url: "https://trucupey.dev",
   name: "Juan Sebastián Flórez Jiménez",
   shortName: "Juan Flórez",
   email: "jsflorezj@gmail.com",
