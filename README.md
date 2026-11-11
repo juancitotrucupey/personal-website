@@ -36,15 +36,28 @@ npm run dev     # start the dev server at http://localhost:4321
 
 ## Commands
 
-| Command            | What it does                                                 |
-| ------------------ | ------------------------------------------------------------ |
-| `npm run dev`      | Dev server with live reload at `localhost:4321`              |
-| `npm run build`    | Production build into `dist/`                                |
-| `npm run preview`  | Serve the production build locally                           |
-| `npm run check`    | Type-check `.astro` and `.ts` files                          |
-| `npm run lint`     | ESLint (`npm run lint:fix` fixes what it can)                |
-| `npm run format`   | Format everything with Prettier (`format:check` only checks) |
-| `npm run validate` | Everything CI runs: format check, lint, type-check and build |
+| Command                      | What it does                                                     |
+| ---------------------------- | ---------------------------------------------------------------- |
+| `npm run dev`                | Dev server with live reload at `localhost:4321`                  |
+| `npm run build`              | Production build into `dist/`                                    |
+| `npm run preview`            | Serve the production build locally                               |
+| `npm run check`              | Type-check `.astro` and `.ts` files                              |
+| `npm run lint`               | ESLint (`npm run lint:fix` fixes what it can)                    |
+| `npm run format`             | Format everything with Prettier (`format:check` only checks)     |
+| `npm run deploy`             | Build and publish to Firebase Hosting (live site)                |
+| `npm run deploy:preview`     | Build and publish to a temporary preview URL (expires in 7 days) |
+| `npm run firebase -- <args>` | Run any Firebase CLI command, e.g. `npm run firebase -- login`   |
+| `npm run validate`           | Everything CI runs: format check, lint, type-check and build     |
+
+## Deploying
+
+The site is hosted on Firebase Hosting, project `personal-website-juan-florez`
+(default URL: https://personal-website-juan-florez.web.app). Configuration: `firebase.json`, `.firebaserc`.
+
+```bash
+npm run firebase -- login   # once per machine, opens Google sign-in
+npm run deploy              # build and publish
+```
 
 ## Project structure
 

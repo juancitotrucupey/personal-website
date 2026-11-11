@@ -1,9 +1,9 @@
 /**
  * Site-wide settings: the single place for name, URL and profile links.
- * TODO: replace `url` with the real domain once it is registered on Namecheap.
+ * TODO: switch `url` to the custom domain once it is connected in Firebase Hosting.
  */
 export const SITE = {
-  url: "https://example.com",
+  url: "https://personal-website-juan-florez.web.app",
   name: "Juan Sebastián Flórez Jiménez",
   shortName: "Juan Flórez",
   email: "jsflorezj@gmail.com",
