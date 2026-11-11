@@ -11,6 +11,7 @@ export const SITE = {
     github: "https://github.com/juancitotrucupey",
     gitlab: "https://gitlab.com/trucupey",
     linkedin: "https://www.linkedin.com/in/juan-florez-mad-scientist/",
+    scholar: "https://scholar.google.com/citations?user=2BAew7oAAAAJ",
     x: "https://twitter.com/mongosorongo",
   },
 } as const;
