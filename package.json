@@ -18,7 +18,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "validate": "npm run format:check && npm run lint && npm run check && npm run build",
-    "firebase": "npx --yes firebase-tools@15",
+    "firebase": "npx --yes --engine-strict=false firebase-tools@15",
     "deploy": "npm run build && npm run firebase -- deploy --only hosting",
     "deploy:preview": "npm run build && npm run firebase -- hosting:channel:deploy preview --expires 7d"
   },
