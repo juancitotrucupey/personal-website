@@ -1,0 +1,10 @@
+---
+/**
+ * "/" sends visitors to the default language. In the static build this becomes a small HTML redirect;
+ * Firebase Hosting can later replace it with a server-side redirect.
+ */
+import { DEFAULT_LOCALE } from "@/i18n/config";
+import { localizePath } from "@/i18n/utils";
+
+return Astro.redirect(localizePath(DEFAULT_LOCALE));
+---

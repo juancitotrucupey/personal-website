@@ -1,0 +1,52 @@
+---
+/** Switch between the two CV versions. Each version is a real page with its own URL. */
+import { AUDIENCES, type Audience } from "@/data/cv";
+import type { Locale } from "@/i18n/config";
+import { localizePath, useTranslations } from "@/i18n/utils";
+
+interface Props {
+  locale: Locale;
+  current?: Audience;
+}
+
+const { locale, current } = Astro.props;
+const t = useTranslations(locale);
+const labels: Record<Audience, string> = { engineer: t("cv.engineer"), research: t("cv.research") };
+---
+
+<nav class="toggle" aria-label={t("cv.chooseVersion")}>
+  {AUDIENCES.map((audience) => (
+    <a
+      href={localizePath(locale, `/cv/${audience}/`)}
+      aria-current={audience === current ? "page" : undefined}
+    >
+      {labels[audience]}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .toggle {
+    display: inline-flex;
+    margin-bottom: var(--space-6);
+    padding: var(--space-1);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  a {
+    padding: var(--space-2) var(--space-4);
+    border-radius: calc(var(--radius) - 2px);
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+
+  a[aria-current="page"] {
+    background: var(--color-bg);
+    color: var(--color-text);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+  }
+</style>

@@ -1,0 +1,82 @@
+---
+import SectionLabel from "@/components/SectionLabel.astro";
+import type { Locale } from "@/i18n/config";
+import { localeStaticPaths, useTranslations } from "@/i18n/utils";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { SITE } from "@/data/site";
+import type { UiKey } from "@/i18n/ui";
+
+export const getStaticPaths = localeStaticPaths;
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+
+/** Home page sections, in order. Each id is an anchor used by the header navigation. */
+const sections: { id: string; label: UiKey }[] = [
+  { id: "now", label: "home.now" },
+  { id: "research", label: "home.research" },
+  { id: "works", label: "home.works" },
+  { id: "projects", label: "home.projects" },
+  { id: "experience", label: "home.experience" },
+  { id: "contact", label: "home.contact" },
+];
+---
+
+<BaseLayout locale={locale} description={SITE.name}>
+  <section class="intro" aria-labelledby="intro-title">
+    <h1 id="intro-title" class="name">
+      {SITE.name}
+    </h1>
+    <div class="terminal" aria-label={t("home.intro")}>
+      <p>
+        <span class="prompt">$</span> whoami
+      </p>
+      <p class="muted">{t("common.comingSoon")}</p>
+    </div>
+  </section>
+
+  {sections.map(({ id, label }) => (
+    <section id={id} class="section" aria-labelledby={`${id}-title`}>
+      <SectionLabel id={`${id}-title`}>{t(label)}</SectionLabel>
+      <p class="muted">{t("common.comingSoon")}</p>
+    </section>
+  ))}
+</BaseLayout>
+
+<style>
+  .intro {
+    padding-block: var(--space-16) var(--space-8);
+  }
+
+  .name {
+    font-family: var(--font-mono);
+    letter-spacing: -0.02em;
+  }
+
+  .terminal {
+    max-width: var(--prose-width);
+    padding: var(--space-4) var(--space-6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .terminal p {
+    margin: 0;
+  }
+
+  .prompt {
+    color: var(--color-accent);
+  }
+
+  .section {
+    padding-block: var(--space-12);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .muted {
+    color: var(--color-text-muted);
+  }
+</style>

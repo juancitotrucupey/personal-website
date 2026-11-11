@@ -1,0 +1,27 @@
+---
+import type { GetStaticPaths } from "astro";
+
+import CvToggle from "@/components/CvToggle.astro";
+import PagePlaceholder from "@/components/PagePlaceholder.astro";
+import { AUDIENCES, type Audience } from "@/data/cv";
+import { LOCALES, type Locale } from "@/i18n/config";
+import { useTranslations } from "@/i18n/utils";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export const getStaticPaths = (() =>
+  LOCALES.flatMap((lang) =>
+    AUDIENCES.map((version) => ({ params: { lang, version } })),
+  )) satisfies GetStaticPaths;
+
+const locale = Astro.params.lang as Locale;
+const version = Astro.params.version as Audience;
+const t = useTranslations(locale);
+const title = version === "engineer" ? t("cv.engineer") : t("cv.research");
+---
+
+<BaseLayout locale={locale} title={`${t("cv.title")} · ${title}`} description={t("cv.description")}>
+  <PagePlaceholder label={t("nav.cv")} title={title} description={t("cv.description")}>
+    <CvToggle locale={locale} current={version} />
+    <p>{t("common.comingSoon")}</p>
+  </PagePlaceholder>
+</BaseLayout>
