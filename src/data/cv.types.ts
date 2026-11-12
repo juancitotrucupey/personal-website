@@ -66,6 +66,13 @@ export interface ActivityEntry extends Period {
   audiences: readonly Audience[];
 }
 
+export interface CvPdf {
+  /** Path under public/, e.g. "/cv/juan-florez-cv-ml-engineer.pdf". */
+  path: string;
+  /** Language the PDF is written in. */
+  lang: Locale;
+}
+
 export interface CvData {
   /** Short profile at the top, per version. */
   summary: Partial<Record<Audience, Localized>>;
@@ -74,4 +81,6 @@ export interface CvData {
   skills: readonly SkillGroup[];
   languages: readonly LanguageSkill[];
   activities: readonly ActivityEntry[];
+  /** Downloadable PDF per version. Must not contain personal data (phone, references). */
+  pdf: Partial<Record<Audience, CvPdf>>;
 }

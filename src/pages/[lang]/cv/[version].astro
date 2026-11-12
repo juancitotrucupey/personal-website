@@ -48,7 +48,15 @@ const contactLinks = [
           {t("cv.title")} · {versionTitle}
         </SectionLabel>
         <h1 class="name">{SITE.name}</h1>
-        <CvToggle locale={locale} current={version} />
+        <div class="actions">
+          <CvToggle locale={locale} current={version} />
+          {cv.pdf && (
+            <a class="download" href={cv.pdf.path} download hreflang={cv.pdf.lang}>
+              {t("cv.downloadPdf")}
+              {cv.pdf.lang !== locale && <span class="note"> ({t("cv.pdfLanguageNote")})</span>}
+            </a>
+          )}
+        </div>
         {cv.summary && <p class="summary">{cv.summary[locale]}</p>}
         <ul class="contact" aria-label={t("cv.contact")}>
           {contactLinks.map(({ href, label }) => (
@@ -99,6 +107,37 @@ const contactLinks = [
   .name {
     font-family: var(--font-mono);
     letter-spacing: -0.02em;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .actions :global(.toggle) {
+    margin-bottom: 0;
+  }
+
+  .download {
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius);
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .download:hover {
+    filter: brightness(1.1);
+  }
+
+  .note {
+    font-weight: 400;
   }
 
   .summary {

@@ -3,6 +3,7 @@ import type { Audience, CvData } from "./cv.types";
 /**
  * CV content. Source: ML_Enginer_Cv_Juan_Florez.pdf (AI/ML Engineer version, Nov 2026).
  * Phone number and references are intentionally not published on the website.
+ * The downloadable PDF is the "no personal info" build of the LaTeX CV (\ShowPersonalInfo{no}).
  * Spanish text is a translation of the English; review before publishing changes.
  */
 export const CV: CvData = {
@@ -388,6 +389,10 @@ export const CV: CvData = {
       audiences: ["engineer", "research"],
     },
   ],
+
+  pdf: {
+    engineer: { path: "/cv/juan-florez-cv-ml-engineer.pdf", lang: "en" },
+  },
 };
 
 /** The parts of the CV that belong to one version, in page order. */
@@ -399,6 +404,7 @@ export function cvFor(audience: Audience) {
     skills: CV.skills.filter((group) => group.audiences.includes(audience)),
     languages: CV.languages,
     activities: CV.activities.filter((entry) => entry.audiences.includes(audience)),
+    pdf: CV.pdf[audience],
   };
 }
 
