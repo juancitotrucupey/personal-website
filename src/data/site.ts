@@ -12,6 +12,7 @@ export const SITE = {
     gitlab: "https://gitlab.com/trucupey",
     linkedin: "https://www.linkedin.com/in/juan-florez-mad-scientist/",
     scholar: "https://scholar.google.com/citations?user=2BAew7oAAAAJ",
+    orcid: "https://orcid.org/0000-0003-3730-705X",
     x: "https://twitter.com/mongosorongo",
   },
 } as const;
