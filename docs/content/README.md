@@ -16,7 +16,15 @@ Origin: https://trucupey.notion.site (extracted 2026-10-29).
 - Personal references (third-party names, phones, emails) — should not be public.
 - Phone number — recommend email + LinkedIn only.
 
-## To resolve before publishing
+## Resolved by the ML Engineer CV (ML_Enginer_Cv_Juan_Florez.pdf, Nov 2026)
+
+The AI/ML Engineer CV is now in `src/data/cv.ts` and is the reference for:
+
+- **B.Sc. end date:** Jun 2019.
+- **Job titles** for Lyric Tech, Zapata AI and Human Brain Technologies (as in that CV).
+- **Contraloría:** 5,000+ public contracts.
+
+## Still to resolve
 
 1. **B.Sc. end date:** long CV says Dec 2018, 1-page CV says Jun 2019.
 2. **Human Brain Technologies role:** "Machine Learning Ops Engineer" vs "ML Engineer".

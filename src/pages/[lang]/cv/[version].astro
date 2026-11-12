@@ -3,7 +3,16 @@ import type { GetStaticPaths } from "astro";
 
 import CvToggle from "@/components/CvToggle.astro";
 import PagePlaceholder from "@/components/PagePlaceholder.astro";
-import { AUDIENCES, type Audience } from "@/data/cv";
+import SectionLabel from "@/components/SectionLabel.astro";
+import ActivityList from "@/components/cv/ActivityList.astro";
+import CvSection from "@/components/cv/CvSection.astro";
+import EducationList from "@/components/cv/EducationList.astro";
+import ExperienceList from "@/components/cv/ExperienceList.astro";
+import LanguageList from "@/components/cv/LanguageList.astro";
+import SkillGroups from "@/components/cv/SkillGroups.astro";
+import { cvFor, hasCv } from "@/data/cv";
+import { AUDIENCES, type Audience } from "@/data/cv.types";
+import { SITE } from "@/data/site";
 import { LOCALES, type Locale } from "@/i18n/config";
 import { useTranslations } from "@/i18n/utils";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -16,12 +25,109 @@ export const getStaticPaths = (() =>
 const locale = Astro.params.lang as Locale;
 const version = Astro.params.version as Audience;
 const t = useTranslations(locale);
-const title = version === "engineer" ? t("cv.engineer") : t("cv.research");
+const versionTitle = version === "engineer" ? t("cv.engineer") : t("cv.research");
+const cv = cvFor(version);
+const ready = hasCv(version);
+const description = cv.summary?.[locale] ?? t("cv.description");
+
+const contactLinks = [
+  { href: `mailto:${SITE.email}`, label: SITE.email },
+  { href: SITE.links.scholar, label: "Google Scholar" },
+  { href: SITE.links.orcid, label: "ORCID" },
+  { href: SITE.links.github, label: "GitHub" },
+  { href: SITE.links.gitlab, label: "GitLab" },
+  { href: SITE.links.linkedin, label: "LinkedIn" },
+];
 ---
 
-<BaseLayout locale={locale} title={`${t("cv.title")} · ${title}`} description={t("cv.description")}>
-  <PagePlaceholder label={t("nav.cv")} title={title} description={t("cv.description")}>
-    <CvToggle locale={locale} current={version} />
-    <p>{t("common.comingSoon")}</p>
-  </PagePlaceholder>
+<BaseLayout locale={locale} title={`${t("cv.title")} · ${versionTitle}`} description={description}>
+  {ready ? (
+    <article class="cv">
+      <header class="cv-header">
+        <SectionLabel as="p">
+          {t("cv.title")} · {versionTitle}
+        </SectionLabel>
+        <h1 class="name">{SITE.name}</h1>
+        <CvToggle locale={locale} current={version} />
+        {cv.summary && <p class="summary">{cv.summary[locale]}</p>}
+        <ul class="contact" aria-label={t("cv.contact")}>
+          {contactLinks.map(({ href, label }) => (
+            <li>
+              <a href={href} rel={href.startsWith("http") ? "me noopener" : undefined}>
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </header>
+
+      <div class="cv-body">
+        <div class="main">
+          <CvSection id="experience" title={t("cv.experience")}>
+            <ExperienceList entries={cv.experience} audience={version} locale={locale} />
+          </CvSection>
+        </div>
+        <aside class="side">
+          <CvSection id="skills" title={t("cv.skills")}>
+            <SkillGroups groups={cv.skills} locale={locale} />
+          </CvSection>
+          <CvSection id="languages" title={t("cv.languages")}>
+            <LanguageList languages={cv.languages} locale={locale} />
+          </CvSection>
+          <CvSection id="education" title={t("cv.education")}>
+            <EducationList entries={cv.education} locale={locale} />
+          </CvSection>
+          <CvSection id="activities" title={t("cv.activities")}>
+            <ActivityList entries={cv.activities} locale={locale} />
+          </CvSection>
+        </aside>
+      </div>
+    </article>
+  ) : (
+    <PagePlaceholder label={t("nav.cv")} title={versionTitle} description={t("cv.description")}>
+      <CvToggle locale={locale} current={version} />
+      <p>{t("common.comingSoon")}</p>
+    </PagePlaceholder>
+  )}
 </BaseLayout>
+
+<style>
+  .cv {
+    padding-block: var(--space-12);
+  }
+
+  .name {
+    font-family: var(--font-mono);
+    letter-spacing: -0.02em;
+  }
+
+  .summary {
+    max-width: var(--prose-width);
+    font-size: var(--text-lg);
+  }
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .cv-body {
+    display: grid;
+    gap: var(--space-12);
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 60rem) {
+    .cv-body {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+import type { ActivityEntry } from "@/data/cv.types";
+import type { Locale } from "@/i18n/config";
+import { useTranslations } from "@/i18n/utils";
+import { formatPeriod } from "@/lib/dates";
+
+interface Props {
+  entries: readonly ActivityEntry[];
+  locale: Locale;
+}
+
+const { entries, locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<ul class="list">
+  {entries.map((entry) => (
+    <li>
+      <h3 class="title">
+        {entry.role[locale]} ·{" "}
+        {entry.url ? <a href={entry.url}>{entry.name[locale]}</a> : entry.name[locale]}
+      </h3>
+      <p class="meta">
+        {formatPeriod(entry.start, entry.end, locale, t("cv.present"))}
+        {entry.links?.map((link) => (
+          <>
+            {" · "}
+            <a href={link.url}>{link.label[locale]}</a>
+          </>
+        ))}
+      </p>
+      {entry.description && <p class="note">{entry.description[locale]}</p>}
+    </li>
+  ))}
+</ul>
+
+<style>
+  .list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li + li {
+    margin-top: var(--space-4);
+  }
+
+  .title {
+    margin: 0;
+    font-size: var(--text-base);
+    font-weight: 600;
+  }
+
+  .meta {
+    margin: var(--space-1) 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .note {
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+</style>
