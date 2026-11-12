@@ -1,0 +1,18 @@
+---
+import CvToggle from "@/components/CvToggle.astro";
+import PagePlaceholder from "@/components/PagePlaceholder.astro";
+import type { Locale } from "@/i18n/config";
+import { localeStaticPaths, useTranslations } from "@/i18n/utils";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export const getStaticPaths = localeStaticPaths;
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+---
+
+<BaseLayout locale={locale} title={t("cv.title")} description={t("cv.description")}>
+  <PagePlaceholder label={t("nav.cv")} title={t("cv.title")} description={t("cv.description")}>
+    <CvToggle locale={locale} />
+  </PagePlaceholder>
+</BaseLayout>

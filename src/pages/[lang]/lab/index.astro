@@ -1,0 +1,17 @@
+---
+import PagePlaceholder from "@/components/PagePlaceholder.astro";
+import type { Locale } from "@/i18n/config";
+import { localeStaticPaths, useTranslations } from "@/i18n/utils";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export const getStaticPaths = localeStaticPaths;
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+---
+
+<BaseLayout locale={locale} title={t("lab.title")} description={t("lab.description")}>
+  <PagePlaceholder label={t("nav.lab")} title={t("lab.title")} description={t("lab.description")}>
+    <p>{t("common.comingSoon")}</p>
+  </PagePlaceholder>
+</BaseLayout>

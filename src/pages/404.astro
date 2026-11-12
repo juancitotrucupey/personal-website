@@ -1,0 +1,14 @@
+---
+import PagePlaceholder from "@/components/PagePlaceholder.astro";
+import { getLocaleFromUrl, localizePath, useTranslations } from "@/i18n/utils";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+---
+
+<BaseLayout locale={locale} title={t("notFound.title")} description={t("notFound.body")}>
+  <PagePlaceholder label="404" title={t("notFound.title")} description={t("notFound.body")}>
+    <a href={localizePath(locale)}>{t("notFound.back")}</a>
+  </PagePlaceholder>
+</BaseLayout>

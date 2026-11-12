@@ -1,0 +1,81 @@
+---
+import type { Audience, ExperienceEntry } from "@/data/cv.types";
+import type { Locale } from "@/i18n/config";
+import { useTranslations } from "@/i18n/utils";
+import { formatPeriod } from "@/lib/dates";
+
+interface Props {
+  entries: readonly ExperienceEntry[];
+  audience: Audience;
+  locale: Locale;
+}
+
+const { entries, audience, locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<ol class="experience">
+  {entries.map((entry) => (
+    <li class="job">
+      <h3 class="title">{entry.title[locale]}</h3>
+      <p class="meta">
+        <span class="org">{entry.org}</span>
+        <span aria-hidden="true"> · </span>
+        <span>{formatPeriod(entry.start, entry.end, locale, t("cv.present"))}</span>
+      </p>
+      <ul class="bullets">
+        {(entry.bullets[audience] ?? []).map((bullet) => (
+          <li>{bullet[locale]}</li>
+        ))}
+      </ul>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .experience {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .job {
+    padding-block: var(--space-6);
+    border-bottom: 1px dashed var(--color-border);
+  }
+
+  .job:first-child {
+    padding-top: 0;
+  }
+
+  .job:last-child {
+    border-bottom: 0;
+  }
+
+  .title {
+    margin: 0;
+    font-size: var(--text-lg);
+    font-weight: 600;
+  }
+
+  .meta {
+    margin: var(--space-1) 0 var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .org {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .bullets {
+    margin: 0;
+    padding-left: var(--space-6);
+  }
+
+  .bullets li + li {
+    margin-top: var(--space-2);
+  }
+</style>

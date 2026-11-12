@@ -1,0 +1,30 @@
+---
+/** Temporary page body used until the design phase fills each page. */
+import SectionLabel from "./SectionLabel.astro";
+
+interface Props {
+  label: string;
+  title: string;
+  description: string;
+}
+
+const { label, title, description } = Astro.props;
+---
+
+<section class="placeholder">
+  <SectionLabel as="p">{label}</SectionLabel>
+  <h1>{title}</h1>
+  <p class="lead">{description}</p>
+  <slot />
+</section>
+
+<style>
+  .placeholder {
+    padding-block: var(--space-12);
+  }
+
+  .lead {
+    max-width: var(--prose-width);
+    color: var(--color-text-muted);
+  }
+</style>

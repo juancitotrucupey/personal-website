@@ -1,0 +1,54 @@
+---
+import type { EducationEntry } from "@/data/cv.types";
+import type { Locale } from "@/i18n/config";
+import { formatYearMonth } from "@/lib/dates";
+
+interface Props {
+  entries: readonly EducationEntry[];
+  locale: Locale;
+}
+
+const { entries, locale } = Astro.props;
+---
+
+<ul class="list">
+  {entries.map((entry) => (
+    <li>
+      <h3 class="title">{entry.degree[locale]}</h3>
+      <p class="meta">
+        {entry.institution} · {formatYearMonth(entry.date, locale)}
+      </p>
+      {entry.note && <p class="note">{entry.note[locale]}</p>}
+    </li>
+  ))}
+</ul>
+
+<style>
+  .list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li + li {
+    margin-top: var(--space-4);
+  }
+
+  .title {
+    margin: 0;
+    font-size: var(--text-base);
+    font-weight: 600;
+  }
+
+  .meta {
+    margin: var(--space-1) 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .note {
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+</style>

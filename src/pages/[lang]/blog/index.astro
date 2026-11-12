@@ -1,0 +1,33 @@
+---
+import PagePlaceholder from "@/components/PagePlaceholder.astro";
+import type { Locale } from "@/i18n/config";
+import { localeStaticPaths, localizePath, useTranslations } from "@/i18n/utils";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { entrySlug, getPosts } from "@/lib/content";
+
+export const getStaticPaths = localeStaticPaths;
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+const posts = await getPosts(locale);
+---
+
+<BaseLayout locale={locale} title={t("blog.title")} description={t("blog.description")}>
+  <PagePlaceholder
+    label={t("nav.blog")}
+    title={t("blog.title")}
+    description={t("blog.description")}
+  >
+    {posts.length === 0 ? (
+      <p>{t("common.comingSoon")}</p>
+    ) : (
+      <ul>
+        {posts.map((post) => (
+          <li>
+            <a href={localizePath(locale, `/blog/${entrySlug(post)}/`)}>{post.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </PagePlaceholder>
+</BaseLayout>

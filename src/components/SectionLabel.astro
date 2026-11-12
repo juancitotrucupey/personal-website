@@ -1,0 +1,25 @@
+---
+/** Small uppercase monospace label used above sections, e.g. "RECENT", "WORKS". */
+interface Props {
+  as?: "h2" | "h3" | "p";
+  id?: string;
+}
+
+const { as: Tag = "h2", id } = Astro.props;
+---
+
+<Tag class="section-label" id={id}>
+  <slot />
+</Tag>
+
+<style>
+  .section-label {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+</style>

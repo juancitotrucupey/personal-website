@@ -1,0 +1,22 @@
+---
+/** A titled block of the CV (Experience, Skills, ...). */
+import SectionLabel from "@/components/SectionLabel.astro";
+
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<section class="cv-section" aria-labelledby={`${id}-title`}>
+  <SectionLabel id={`${id}-title`}>{title}</SectionLabel>
+  <slot />
+</section>
+
+<style>
+  .cv-section + .cv-section {
+    margin-top: var(--space-8);
+  }
+</style>
